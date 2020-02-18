@@ -13,7 +13,7 @@ namespace DoorControl_Test_Unit
         [Test]
         public void Test_OneEqualsOne_True()
         {
-            Assert.That(1, Is.EqualTo(1));
+            Assert.That(0, Is.EqualTo(1));
         }
     }
 }
