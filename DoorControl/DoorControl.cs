@@ -29,8 +29,8 @@ namespace DoorControl
 
         public void DoorOpen()
         {
-            Door.Close();
             Console.WriteLine("Door open - Wishing to close door");
+            Door.Close();
         }
 
         public void DoorClosed()
