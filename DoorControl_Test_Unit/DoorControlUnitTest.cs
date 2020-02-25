@@ -49,5 +49,12 @@ namespace DoorControl_Test_Unit
         {
 
         }
+
+        [Test]
+        public void DoorOpen_DoorOpenCalled_DoorCloseCalledInDoor()
+        {
+            uut.DoorOpen();
+            testDoor.Received(1).Close();
+        }
     }
 }
