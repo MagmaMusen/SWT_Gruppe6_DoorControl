@@ -27,5 +27,10 @@ namespace DoorControl_Test_Unit
         {
             
         }
+
+        [Test]
+        public void DoorOpen_DoorOpenedCalled_DoorCloseCalledinDoor
+
+
     }
 }
