@@ -47,7 +47,10 @@ namespace DoorControl_Test_Unit
         [Test]
         public void RequestEntry_InvalidID_NotifyEntryDeniedCalled()
         {
-
+            string ID = "";
+            testUserValidation.ValidateEntryRequest(ID).Returns(false);
+            uut.RequestEntry(ID);
+            testEntryNotification.Received(1).NotifyEntryDenied();
         }
     }
 }
