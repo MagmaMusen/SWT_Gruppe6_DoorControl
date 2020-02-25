@@ -18,22 +18,31 @@ namespace DoorControl
 
         public void RequestEntry(string ID)
         {
-
+            if (UserValidation.ValidateEntryRequest(ID) == true)
+            {
+                EntryNotification.NotifyEntryGranted();
+                Door.Open();
+            }
+            else
+                EntryNotification.NotifyEntryDenied();
         }
 
         public void DoorOpen()
         {
-
+            Door.Close();
+            Console.WriteLine("Door open - Wishing to close door");
         }
 
         public void DoorClosed()
         {
-
+            Console.WriteLine("Door closed - Waiting for user");
         }
 
         public void DoorOpened()
         {
-
+            Console.WriteLine("Door breached - Raise alarm and close door");
+            Alarm.RaiseAlarm();
+            Door.Close();
         }
 
 
