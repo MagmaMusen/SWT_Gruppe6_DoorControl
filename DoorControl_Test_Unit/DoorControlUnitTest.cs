@@ -39,12 +39,6 @@ namespace DoorControl_Test_Unit
         }
 
         [Test]
-        public void Test_OneEqualsOne_True()
-        {
-            
-        }
-
-        [Test]
         public void RequestEntry_InvalidID_NotifyEntryDeniedCalled()
         {
             string ID = "";
@@ -76,6 +70,20 @@ namespace DoorControl_Test_Unit
         public void DoorOpen_DoorOpenCalled_DoorCloseCalledInDoor()
         {
             uut.DoorOpen();
+            testDoor.Received(1).Close();
+        }
+
+        [Test]
+        public void DoorOpened_RaiseAlarmCalled()
+        {
+            uut.DoorOpened();
+            testAlarm.Received(1).RaiseAlarm();
+        }
+
+        [Test]
+        public void DoorOpened_DoorCloseCalled()
+        {
+            uut.DoorOpened();
             testDoor.Received(1).Close();
         }
     }
