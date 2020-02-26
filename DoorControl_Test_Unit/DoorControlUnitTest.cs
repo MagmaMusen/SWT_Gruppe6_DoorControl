@@ -86,5 +86,12 @@ namespace DoorControl_Test_Unit
             uut.DoorOpened();
             testDoor.Received(1).Close();
         }
+
+        [Test]
+        public void DoorClosed_()
+        {
+            uut.DoorClosed();
+            Assert.That(true);
+        }
     }
 }
