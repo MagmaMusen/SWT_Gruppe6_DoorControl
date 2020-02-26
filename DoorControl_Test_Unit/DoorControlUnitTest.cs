@@ -54,6 +54,25 @@ namespace DoorControl_Test_Unit
         }
 
         [Test]
+        public void RequestEntry_ValidID_NotifyEntryGrantedCalled()
+        {
+            string ID = "";
+            testUserValidation.ValidateEntryRequest(ID).Returns(true);
+            uut.RequestEntry(ID);
+            testEntryNotification.Received(1).NotifyEntryGranted();
+        }
+
+        [Test]
+        public void RequestEntry_ValidID_OpenCalled()
+        {
+            string ID = "";
+            testUserValidation.ValidateEntryRequest(ID).Returns(true);
+            uut.RequestEntry(ID);
+            testDoor.Received(1).Open();
+        }
+
+
+        [Test]
         public void DoorOpen_DoorOpenCalled_DoorCloseCalledInDoor()
         {
             uut.DoorOpen();
